@@ -1,6 +1,6 @@
 # NPM包的发布
 
-## 1. 想象中的npm包发布操作
+## 想象中的npm包发布操作
 
 - 初始化package.json, <code>npm init</code>
 - 登录npm,设置用户名和邮箱, <code>npm login</code>
@@ -50,9 +50,9 @@ vue create hroa-ui
 
 
 
+## 发布NPM包操作
 
-
-## 2. nrm介绍
+###  nrm介绍
 
 nrm（NPM registry manager）是一个npm源管理工具，可以用来切换npm源，也可以用来查看npm源的地址。
 
@@ -78,7 +78,7 @@ nrm del kye
 ![nrm-ls](./images/npmPackage/nrm-ls.jpg)
 
 
-## 3. 登陆npm
+### 3. 登陆npm
 没有帐号则需要先去 npm官网[https://www.npmjs.com/]注册一个账号。
 然后执行命令登陆
 ```shell
@@ -86,19 +86,19 @@ npm login
 ```
 ![npm-login](./images/npmPackage/npm-login.jpg)
 
-## 4. 发布npm包
+### 4. 发布npm包
 需要在package.json中添加name、version、description等字段，然后执行命令
 ```shell
 npm publish
 ```
 
-## 5. 安装npm包
+### 5. 安装npm包
 切换到需要安装的包的目录，执行命令
 ```bash 
 npm i package-name
 ```
 
-## 6. 升级npm包版本
+### 6. 升级npm包版本
 如若该包进行更新后，需要再次发包，可 npm version 控制该版本进行升级，记住需要遵守 Semver 规范:
 https://semver.org/lang/zh-CN/
 ```bash
@@ -150,3 +150,7 @@ Vue.use(hroaUI)
 - 可以改变需要调试库的package.json中main字段，main字段表示入口文件，相对路径。
 - npm link
 
+
+## 拓展
+- 钩子
+- 工具生成 changelog
