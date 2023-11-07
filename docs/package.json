@@ -1,0 +1,16 @@
+{
+  "name": "aichkyo",
+  "version": "1.0.0",
+  "description": "AichKyo 的文档",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "文档",
+    "docs",
+    "FE"
+  ],
+  "author": "",
+  "license": "ISC"
+}

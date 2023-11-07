@@ -1,0 +1,22 @@
+{
+  "name": "aichkyo",
+  "version": "1.0.1",
+  "description": "AichKyo 的文档",
+  "main": "index.js",
+  "devDependencies": {
+    "vitepress": "^1.0.0-rc.24"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
+  },
+  "keywords": [
+    "文档",
+    "docs",
+    "FE"
+  ],
+  "author": "",
+  "license": "ISC"
+}
