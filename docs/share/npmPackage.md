@@ -8,8 +8,6 @@
 - 修改package.json文件name version
 - 发布，<code>npm publish</code>
 
-结束，撒花🎉
-
 ```shell
 npm init -y
 npm login
@@ -20,7 +18,39 @@ npm publish
 ```
 ![npm-init](./images/npmPackage/npm-init.jpg)
 
-好像是这么一回事，但是能拿到项目中实战会这么粗糙吗？
+好像是这么一回事，但是项目中实战会怎么样呢？
+
+
+接下来，我们一步步完成它。
+
+
+
+## 开发一个UI组件库
+
+```shell
+# 安装vue脚手架
+npm install -g @vue/cli
+# 创建一个项目，跟着脚手架的提示一步一步完成
+vue create hroa-ui
+
+```
+
+### 修改src->examples
+
+### vue.config.js修改入口文件
+### 新增文件packages
+
+### 在packages中新增文件夹hr-button
+
+### 在文件夹hr-button中新增index.js和hr-button.vue文件
+
+### 在packages中新增index.js
+
+### package.json新增lib命令
+
+
+
+
 
 ## 2. nrm介绍
 
@@ -81,6 +111,42 @@ npm version minor
 # 将更新后的包发布到 npm 中
 npm publish
 ```
-
-
 ## 项目中使用
+
+### 在项目中使用组件
+
+```shell
+# 创建一个项目，跟着脚手架的提示一步一步完成
+vue create use-our-npm
+
+```
+
+![vue-create](./images/npmPackage/vue-create.jpg)
+
+### 在main.js文件中引入UI组件
+
+```js
+
+// 全局引入UI组件
+import hroaUI from "hroa-ui";
+// 引入样式
+import 'hroa-ui/dist/hrui.css';
+// 组册
+Vue.use(hroaUI)
+
+```
+
+### 在.vue文件中使用组件
+
+```html
+  <hr-button>hhh</hr-button>
+```
+
+
+
+
+## 本地调试
+
+- 可以改变需要调试库的package.json中main字段，main字段表示入口文件，相对路径。
+- npm link
+
