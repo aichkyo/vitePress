@@ -27,7 +27,7 @@ module.exports = {
           { text: 'Item B', link: '/item-2' },
           { 
             // Title for the section.
-            text: 'Section A Title',
+            text: '下拉分组小标题',
             items: [
               { text: 'Section A Item A', link: '...' },
               { text: 'Section B Item B', link: '...' }
@@ -40,7 +40,6 @@ module.exports = {
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
-      { icon: 'twitter', link: '...' },
       // You can also add custom icons by passing SVG as string:
       {
         icon: {
@@ -52,24 +51,45 @@ module.exports = {
       }
     ],
 
-    sidebar: [
-      {
-        text: 'Section Title A',
-        collapsed: false,
-        items: [
-          { text: 'Item A', link: '/item-a' },
-          { text: 'Item B', link: '/item-b' },
-        ]
-      },
-      {
-        text: 'Section Title B',
-        collapsed: true,
-        items: [
-          { text: 'Item C', link: '/item-c' },
-          { text: 'Item D', link: '/item-d' },
-        ]
-      }
-    ],
+    sidebar: {
+      "share": [
+        {
+          text: '技术分享侧边栏',
+          collapsed: false,
+          items: [
+            { text: '文章1', link: '/item-a' },
+            { text: '文章2', link: '/item-b' },
+          ]
+        },
+        {
+          text: '技术分享侧边栏2',
+          collapsed: true,
+          items: [
+            { text: 'Item C', link: '/item-c' },
+            { text: 'Item D', link: '/item-d' },
+          ]
+        }
+      ],
+      "hr-components": [
+        {
+          text: '公共组件1',
+          collapsed: false,
+          items: [
+            { text: '组件1', link: '/item-a' },
+            { text: '组件2', link: '/item-b' },
+          ]
+        },
+        {
+          text: '公共组件2',
+          collapsed: true,
+          items: [
+            { text: 'Item C', link: '/item-c' },
+            { text: 'Item D', link: '/item-d' },
+          ]
+        }
+      ]
+    }
+
 
 
     // footer: {
