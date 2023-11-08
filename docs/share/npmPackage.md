@@ -37,21 +37,80 @@ vue create hroa-ui
 
 ### 修改src->examples
 
+常规项目源文件会在src目录下，组件库项目的入口文件不在此，故为了区分两者的差别，我们将src改为examples，后续可以在examples引入我们自己写的UI组件进行引用调试。
+
+<code>目录结构</code>
+![修改目录结构](./images/npmPackage/修改目录结构.jpg)
+
 ### vue.config.js修改入口文件
+因为项目目录结构默认入口为 src/main.js，我们修改后src项目可能跑不起来，所以需要在配置文件中修改项目的入口文件指向 entry。
+
+如图所示，此为vue-cli3版本的修改示例，其他版本同理。
+
+<code>vue.config.js</code>
+![vue-config-js](./images/npmPackage/vue-config-js.jpg)
+
 ### 新增文件packages
 
-### 在packages中新增文件夹hr-button
+packages为我们组件库的文件夹，我们可以在此创建多个组件。
+
+比如，我们现在需要做一个按钮的公共组件，就得为每一个组件创建一个文件夹，方便我们管理后续导出。
+
+在packages中新增文件夹hr-button，名字可以根据功能或者规范自己取。
 
 ### 在文件夹hr-button中新增index.js和hr-button.vue文件
 
-### 在packages中新增index.js
+在hr-button文件中创建组件。我这里创建把.vue文件放在src中，后续组件变大好维护。
 
+<code>hr-button/src/hr-button.vue</code>
+![hr-button-vue](./images/npmPackage/hr-button.jpg){width="300px"}
+
+定义一个导出这个<code>hr-button</code>vue组件的js文件。为什么要创建这个文件下面解释
+
+<code>hr-button/index.js</code>
+![hr-button-js](./images/npmPackage/hr-button-js.jpg)
+
+### 在packages中新增index.js
+在我们写完组件后，怎么去使用它呢。
+
+vue引入组件的方式就两种，一种是局部引入import xxx form 'xxx'，一种是全局注册Vue.components。
+
+所以我们就需要给组件定义一个install方法，方便引入组件的时候使用Vue.use注册组件。
+
+<code>packages/index.js</code>
+![packages-index-js](./images/npmPackage/packages-index-js.jpg)
+
+到此为止，我们的组件库开发基础工作已经完成了，剩下就是完善其他组件、打包、发布。
 ### package.json新增lib命令
 
+```json
+"lib": "vue-cli-service build --target lib --name hrui ./packages/index.js"
+```
+<code> --target lib</code>意思是让脚手架帮我们打包成各个模块化规范的库文件。
 
+<code> --name hrui ./packages/index.js</code>意思是从package/index.js入口文件中打包生成 hrui名称的文件。 如 hrui.common.js、hrui.umd.js、hrui.css
 
+执行 lib 命令 <code> npm run lib </code>，等待打包结束看 dist 文件夹
+
+除此之外，还需要在package.json中新增字段。
+
+```json
+{
+  ...
+  "main": "./dist/hrui.common.js", // 指定项目的入口文件地址
+  "description": "hroa-ui", // 关于这个包的描述文件
+  "files": [ // 发布包需要带上文件，否则会根据.gitignore、.npmignore忽略掉文件
+    "dist",
+    "examples",
+    "packages"
+  ],
+  "prepublishOnly": "npm run lib", // 执行npm publish的前置钩子
+  ...
+}
+```
 ## 发布NPM包操作
 
+磨刀不误砍柴工，先认识nrm帮我们更方便操作。
 ###  nrm介绍
 
 nrm（NPM registry manager）是一个npm源管理工具，可以用来切换npm源，也可以用来查看npm源的地址。
@@ -65,7 +124,7 @@ nrm ls
 
 # 切换npm源 
 # nrm use <registry>
-nrm use cnpm  
+nrm use npm  
 
 # 新增npm源 
 # nrm add <registry> <url> [home]
