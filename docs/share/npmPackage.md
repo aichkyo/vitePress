@@ -73,7 +73,7 @@ packages为我们组件库的文件夹，我们可以在此创建多个组件。
 ### 在packages中新增index.js
 在我们写完组件后，怎么去使用它呢。
 
-vue引入组件的方式就两种，一种是局部引入import xxx form 'xxx'，一种是全局注册Vue.components。
+vue引入组件的方式就两种，一种是组件引入Vue.components()，一种是插件注册Vue.use()。
 
 所以我们就需要给组件定义一个install方法，方便引入组件的时候使用Vue.use注册组件。
 
@@ -175,12 +175,11 @@ npm publish
 ### 在项目中使用组件
 
 ```shell
-# 创建一个项目，跟着脚手架的提示一步一步完成
-vue create use-our-npm
+# 安装组件库
+npm i hroa-ui
 
 ```
 
-![vue-create](./images/npmPackage/vue-create.jpg)
 
 ### 在main.js文件中引入UI组件
 
@@ -208,6 +207,10 @@ Vue.use(hroaUI)
 
 - 可以改变需要调试库的package.json中main字段，main字段表示入口文件，相对路径。
 - npm link
+  
+> 在组件库工程目录下 执行 npm link
+
+> 在引入组件库的工程目录下 执行 npm link hroa-ui
 
 
 ## 拓展

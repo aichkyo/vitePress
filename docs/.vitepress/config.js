@@ -20,26 +20,27 @@ module.exports = {
     nav: [
       // { text: 'Home', link: '/' },
       { text: 'hr公共组件', link: '/hr-components/', activeMatch: '/hr-components/' },
-      { 
-        text: '技术分享',
-        items: [
-          { text: 'npm包', link: '/share/npmPackage' },
-          { text: 'Item B', link: '/item-2' },
-          { 
-            // Title for the section.
-            text: '下拉分组小标题',
-            items: [
-              { text: 'Section A Item A', link: '...' },
-              { text: 'Section B Item B', link: '...' }
-            ]
-          }
-        ]
-      },
+      { text: '技术分享', link: '/share/', activeMatch: '/share/' },
+      // { 
+      //   text: '技术分享',
+      //   items: [
+      //     { text: 'npm包', link: '/share/npmPackage' },
+      //     { text: 'Item B', link: '/item-2' },
+      //     { 
+      //       // Title for the section.
+      //       text: '下拉分组小标题',
+      //       items: [
+      //         { text: 'Section A Item A', link: '...' },
+      //         { text: 'Section B Item B', link: '...' }
+      //       ]
+      //     }
+      //   ]
+      // },
       { text: 'Changelog', link: 'https://github.com/...' }
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
+      { icon: 'github', link: 'https://github.com/aichkyo/aichkyo.github.io' },
       // You can also add custom icons by passing SVG as string:
       {
         icon: {
@@ -54,11 +55,13 @@ module.exports = {
     sidebar: {
       "share": [
         {
-          text: '技术分享侧边栏',
+          text: '开发vue公共组件库',
           collapsed: false,
           items: [
-            { text: '文章1', link: '/item-a' },
-            { text: '文章2', link: '/item-b' },
+            { text: '开发组件库', link: '/share/hroa-ui/开发组件库' },
+            { text: '认识nrm', link: '/share/hroa-ui/认识nrm' },
+            { text: '发布npm包', link: '/share/hroa-ui/发布npm包' },
+            { text: '使用组件库', link: '/share/hroa-ui/使用组件库' },
           ]
         },
         {
